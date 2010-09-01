@@ -104,7 +104,7 @@ define luaprint
 			printf "<tab> %p ", $tab
 			if $argc == 2
 				luaprinttable $tab
-				if && $tab.metatable
+				if $tab.metatable
 					printf " metatable="
 					luaprinttable $tab.metatable
 				end
