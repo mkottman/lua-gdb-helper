@@ -19,11 +19,11 @@ Reference
 
 - luastack [L] - lists the values on the current Lua C stack. By default, uses the current variable `L` as the `lua_State` pointer, however, an alternate `lua_State` can be provided as the first argument if needed.
 
-- luaprint <value> [verbose] - Pretty-prints a `TValue` passed as argument. Expects a pointer to a `TValue`. When verbose is 1, expands tables, metatables and userdata environments.
+- luaprint < value > [verbose] - Pretty-prints a `TValue` passed as argument. Expects a pointer to a `TValue`. When verbose is 1, expands tables, metatables and userdata environments.
 
-- luaprinttable <table> - Pretty-prints a Lua Table. Expects a pointer to `Table`.
+- luaprinttable < table > - Pretty-prints a Lua Table. Expects a pointer to `Table`.
 
-- luavalue <index> [L] - Provides a pointer to a TValue from a stack index. By default, uses the current variable L as a lua_State pointer, but can be specified as the second argument. The return value is passed in variable $obj.
+- luavalue < index > [L] - Provides a pointer to a TValue from a stack index. By default, uses the current variable L as a lua_State pointer, but can be specified as the second argument. The return value is passed in variable $obj.
 
 However, note that "pretty-printing" is not as pretty as it could be. First, the hash part is displayed, then the array part. Entries in hash part are separated by newlines, the ones in array part are displayed side-by-side.
 
