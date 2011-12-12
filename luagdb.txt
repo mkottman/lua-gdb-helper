@@ -157,3 +157,26 @@ document luastack
 	Prints values on the Lua C stack. Without arguments, uses the current value of "L"
 	as the lua_State*. You can provide an alternate lua_State as the first argument.
 end
+
+define luatrace
+	if $argc == 0
+		set $L = L
+	else
+		set $L = $arg0
+	end
+	if luaL_loadstring (L, "return debug.traceback()") == 0
+		if lua_pcall(L, 0, 1, 0) == 0
+			printf "%s\n", lua_tolstring (L, -1, 0)
+		else
+			printf "ERROR: %s\n", lua_tolstring (L, -1, 0)
+		end
+		call lua_settop (L, -2)
+	end
+end
+document luatrace
+	luatraceback [L]
+	Dumps Lua execution stack, as debug.traceback() does. Without
+	arguments, uses the current value of "L" as the
+	lua_State*. You can provide an alternate lua_State as the
+	first argument.
+end
