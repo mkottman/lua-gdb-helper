@@ -1,7 +1,3 @@
-# Lua GDB Helpers
-# Copyright (c) 2010 Michal Kottman
-# License: MIT
-
 define luatrace
         if $argc == 0
                 set $L = L
@@ -18,7 +14,7 @@ define luatrace
         end
 end
 document luatrace
-        luatraceback [L]
+        luatrace [L]
         Dumps Lua execution stack, as debug.traceback() does. Without
         arguments, uses the current value of "L" as the
         lua_State*. You can provide an alternate lua_State as the
